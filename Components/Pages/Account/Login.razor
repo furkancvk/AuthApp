@@ -1,0 +1,93 @@
+@page "/login"
+@using AuthApp.Models.ViewModels
+@using System.Security.Claims
+@using Microsoft.AspNetCore.Authentication
+@using Microsoft.AspNetCore.Authentication.Cookies
+@inject NavigationManager NavigationManager
+
+<div class="row">
+    <div class="col-lg-4 offset-lg-4 pt-4 pb-4 border">
+        <EditForm Model="@Model" OnValidSubmit="Authenticate" FormName="LoginForm">
+            <DataAnnotationsValidator />
+            <div class="mb-3 text-center flex-column">
+                <img src="/images/avatar.png" style="max-height:5rem;" />
+                <h3>LOGIN</h3>
+            </div>
+            <div class="mb-3">
+                <label>User Name</label>
+                <InputText @bind-Value="Model.Username" class="form-control" placeholder="Username" />
+                <ValidationMessage For="() => Model.Username" />
+            </div>
+            <div class="mb-3">
+                <label>Password</label>
+                <InputText @bind-Value="Model.Password" placeholder="Password" type="password" class="form-control" />
+                <ValidationMessage For="() => Model.Password" />
+            </div>
+            <div class="mb-3 text-center">
+                <span class="text-danger">@errorMessage</span>
+            </div>
+            <div class="mb-3 d-grid gap-2">
+                <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+        </EditForm>
+    </div>
+</div>
+
+@code {
+    [CascadingParameter]
+    public HttpContext? HttpContext { get; set; }
+
+    [SupplyParameterFromForm]
+    public LoginViewModel Model { get; set; } = new();
+
+    private string? errorMessage;
+
+    private async Task Authenticate()
+    {
+        try
+        {
+            var users = new List<UserAccount>
+            {
+                new UserAccount
+                {
+                    Id = 1,
+                    Username = "furkan",
+                    Password = "123",
+                    Email = "test1@test.com",
+                    Role = "admin"
+                },
+                new UserAccount
+                {
+                    Id = 2,
+                    Username = "abdulkadir",
+                    Password = "123",
+                    Email = "test2@test.com",
+                    Role = "user"
+                }
+            };
+
+            var user = users.SingleOrDefault(x => x.Username == Model.Username && x.Password == Model.Password);
+            if (user == null)
+            {
+                errorMessage = "Invalid username or password";
+                return;
+            }
+
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, Model.Username),
+                new Claim(ClaimTypes.Role, user.Role)
+            };
+            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            var principal = new ClaimsPrincipal(identity);
+            await HttpContext.SignInAsync(principal);
+
+            NavigationManager.NavigateTo("/");
+        }
+        catch (UnauthorizedAccessException ex)
+        {
+            // Handle authentication failure
+            errorMessage = ex.Message;
+        }
+    }
+}

@@ -2,6 +2,27 @@
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+<div class="row">
+    <div class="col-lg-4 offset-lg-4 pt-4 pb-4 border">
+        <div class="mb-3 text-center flex-column">
+            <img src="/images/avatar.png" style="max-height:5rem;" />
+            <h3>HOME</h3>
+        </div>
+        <div class="mb-3 text-center">
+            <span class="text-success">Welcome to the application</span>
+        </div>
+        <AuthorizeView>
+            <NotAuthorized>
+                <div class="mb-3 d-grid gap-2">
+                    <NavLink class="btn btn-primary" href="/login">You are not authorized, please login</NavLink>
+                </div>
+            </NotAuthorized>
+            <Authorized>
+                <div class="mb-3 d-grid gap-2">
+                    <NavLink class="btn btn-primary" href="/logout">You are authorized, you can logout here</NavLink>
+                </div>
+            </Authorized>
+        </AuthorizeView>
+    </div>
+</div>
 
-Welcome to your new app.
