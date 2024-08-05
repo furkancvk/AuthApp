@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Programming\\ASP.NET-projects\\Blazor\\AuthApp\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\AuthApp.bundle.scp.css",
+      "PackagePath": "staticwebassets\\AuthApp.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\Programming\\ASP.NET-projects\\Blazor\\AuthApp\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "D:\\Programming\\ASP.NET-projects\\Blazor\\AuthApp\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\Programming\\ASP.NET-projects\\Blazor\\AuthApp\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\Programming\\ASP.NET-projects\\Blazor\\AuthApp\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.AuthApp.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.AuthApp.props",
+      "PackagePath": "build\\AuthApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.AuthApp.props",
+      "PackagePath": "buildMultiTargeting\\AuthApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.AuthApp.props",
+      "PackagePath": "buildTransitive\\AuthApp.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
