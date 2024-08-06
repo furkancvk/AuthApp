@@ -28,7 +28,3 @@ D:\Programming\ASP.NET-projects\Blazor\AuthApp\obj\Debug\net8.0\AuthApp.pdb
 D:\Programming\ASP.NET-projects\Blazor\AuthApp\obj\Debug\net8.0\AuthApp.genruntimeconfig.cache
 D:\Programming\ASP.NET-projects\Blazor\AuthApp\obj\Debug\net8.0\ref\AuthApp.dll
 D:\Programming\ASP.NET-projects\Blazor\AuthApp\obj\Debug\net8.0\AuthApp.sourcelink.json
-D:\Programming\ASP.NET-projects\Blazor\AuthApp\bin\Debug\net8.0\Data\users.json
-D:\Programming\ASP.NET-projects\Blazor\AuthApp\bin\Debug\net8.0\Newtonsoft.Json.dll
-D:\Programming\ASP.NET-projects\Blazor\AuthApp\obj\Debug\net8.0\AuthApp.csproj.AssemblyReference.cache
-D:\Programming\ASP.NET-projects\Blazor\AuthApp\obj\Debug\net8.0\AuthApp.csproj.Up2Date
