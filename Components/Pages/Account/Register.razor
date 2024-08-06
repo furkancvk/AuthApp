@@ -1,0 +1,64 @@
+@page "/register"
+@using AuthApp.Models.ViewModels
+@using System.Text
+@using System.Text.Json
+
+<PageTitle>Register</PageTitle>
+
+<div>
+    <EditForm Model="@Model" OnValidSubmit="HandleValidSubmit" FormName="RegisterForm">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div>
+            <label for="username">Username:</label>
+            <InputText id="username" @bind-Value="Model.Username" />
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <InputText id="password" @bind-Value="Model.Password" type="password" />
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <InputText id="email" @bind-Value="Model.Email" type="email" />
+        </div>
+        <div>
+            <button type="submit">Register</button>
+        </div>
+    </EditForm>
+</div>
+
+
+
+@code{
+    [SupplyParameterFromForm]
+    public RegisterViewModel Model { get; set; } = new();
+
+
+   public void HandleValidSubmit()
+    {
+        var client = new HttpClient();
+        client.BaseAddress = new Uri("http://localhost:5054/api/");
+        var json = JsonSerializer.Serialize(Model);
+        var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+        var response = client.PostAsync("AuthUsers", content).Result;
+        if (response.IsSuccessStatusCode)
+        {
+            Console.WriteLine("User registered successfully");
+
+            var responseContent = response.Content.ReadAsStringAsync().Result;
+            Console.WriteLine(responseContent);
+       
+        }
+        else
+        {
+           
+            Console.WriteLine(response);
+            Console.WriteLine("User registration failed");
+        }
+         Model = new RegisterViewModel();
+        StateHasChanged();
+  
+    }
+}
