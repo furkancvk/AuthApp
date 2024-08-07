@@ -1,0 +1,53 @@
+# .NET Core
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+*.nuget
+*.log
+*.user
+*.lock.json
+*.csproj.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# ASP.NET Core
+wwwroot/
+node_modules/
+dist/
+.env
+
+# Visual Studio
+.vscode/
+.vs/
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+.vscode/extensions.json
+
+# Rider
+.idea/
+.idea_modules/
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/dictionaries
+.idea/libraries
+.idea/.idea_modules.xml
+.idea/.name
+.idea/.rider/
+.idea/.rider.xml
+.idea/.rider/workspace.xml
+.idea/.rider/tasks.xml
+.idea/.rider/dictionaries
+.idea/.rider/libraries
+.idea/.rider/.idea_modules.xml
+.idea/.rider/.name
+
+# Mac
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini

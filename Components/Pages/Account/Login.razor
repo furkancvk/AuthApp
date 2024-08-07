@@ -4,6 +4,8 @@
 @using Microsoft.AspNetCore.Authentication
 @using Microsoft.AspNetCore.Authentication.Cookies
 @inject NavigationManager NavigationManager
+@using System.Text
+@using System.Text.Json
 
 <div class="row">
     <div class="col-lg-4 offset-lg-4 pt-4 pb-4 border">
@@ -71,7 +73,30 @@
             {
                 errorMessage = "Invalid username or password";
                 return;
-            }
+            }   // static check logic
+
+            @* var client = new HttpClient();
+        client.BaseAddress = new Uri("http://localhost:5054/api/");
+        var json = JsonSerializer.Serialize(Model);
+        var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+        var response = client.GetAsync("AuthUsers", content).Result;
+        if (response.IsSuccessStatusCode)
+        {
+            Console.WriteLine("User registered successfully");
+
+            var responseContent = response.Content.ReadAsStringAsync().Result;
+            Console.WriteLine(responseContent);
+       
+        }
+        else
+        {
+           
+            Console.WriteLine(response);
+            Console.WriteLine("User registration failed");
+        }
+         Model = new RegisterViewModel();
+        StateHasChanged(); *@
 
             var claims = new List<Claim>
             {
