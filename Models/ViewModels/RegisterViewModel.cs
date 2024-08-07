@@ -13,5 +13,15 @@ namespace AuthApp.Models.ViewModels
         [Required(AllowEmptyStrings = false, ErrorMessage = "Email is required")]
         [EmailAddress(ErrorMessage = "Invalid email address")]
         public string? Email { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Name is required")]
+        public string? Name { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Surname is required")]
+
+        public string? Surename { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Gender is required")]
+        public string? Gender { get; set; }
     }
 }

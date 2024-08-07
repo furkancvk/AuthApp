@@ -23,6 +23,18 @@
             <InputText id="email" @bind-Value="Model.Email" type="email" />
         </div>
         <div>
+            <label for="email">Name:</label>
+            <InputText id="name" @bind-Value="Model.Name"  />
+        </div>
+        <div>
+            <label for="email">Surname:</label>
+            <InputText id="surname" @bind-Value="Model.Surename"  />
+        </div>
+        <div>
+            <label for="email">Gender:</label>
+            <InputText id="gender" @bind-Value="Model.Gender" />
+        </div>
+        <div>
             <button type="submit">Register</button>
         </div>
     </EditForm>
@@ -37,6 +49,8 @@
 
    public void HandleValidSubmit()
     {
+
+
         var client = new HttpClient();
         client.BaseAddress = new Uri("http://localhost:5054/api/");
         var json = JsonSerializer.Serialize(Model);
